@@ -18,8 +18,8 @@ describe 'Account' do
 
   describe 'Withdraw' do
     it 'Should decrease amount from balance' do
-      account.withdraw(20)
-      expect(account.balance).to eq -20
+      account.withdraw(5)
+      expect(account.balance).to eq 15
     end
   end
 end
