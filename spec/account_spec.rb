@@ -7,6 +7,10 @@ describe 'Account' do
     it 'Should create an initial balance of 0' do
       expect(account.balance).to eq 0
     end
+
+    it 'Should create an empty transaction array' do
+      expect(account.transactions).to eq []
+    end
   end
 
   describe 'Deposit' do
