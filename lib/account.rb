@@ -1,3 +1,4 @@
+
 class Account
   attr_reader :balance, :transactions
 
