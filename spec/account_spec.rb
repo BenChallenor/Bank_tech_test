@@ -1,5 +1,4 @@
 require 'account'
-require 'transaction'
 
 describe 'Account' do
   account = Account.new
@@ -29,6 +28,10 @@ describe 'Account' do
     it 'Should decrease amount from balance' do
       account.withdraw(5)
       expect(account.balance).to eq 15
+    end
+
+    it 'Should add array to transactions' do
+      expect(account.transactions.length).to eq 2
     end
   end
 end
