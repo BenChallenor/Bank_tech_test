@@ -1,4 +1,3 @@
-
 class Account
   attr_reader :balance, :transactions, :date
 
@@ -11,13 +10,13 @@ class Account
   def deposit(credit)
     @balance += credit
     transaction = Transaction.new(date, credit, 0, balance)
-    @transactions << transaction
+    @transactions.unshift(transaction)
   end
 
   def withdraw(debit)
     @balance -= debit
     transaction = Transaction.new(date, 0, debit, balance)
-    @transactions << transaction
+    @transactions.unshift(transaction)
   end
 
   def print_statement
