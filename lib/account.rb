@@ -8,19 +8,22 @@ class Account
     @date = Time.now.strftime('%d-%m-%Y')
   end
 
-  def deposit(amount)
-    @balance += amount
-    transaction = Transaction.new(date, amount, balance)
+  def deposit(credit)
+    @balance += credit
+    transaction = Transaction.new(date, credit, 0, balance)
     @transactions << transaction
   end
 
-  def withdraw(amount)
-    @balance -= amount
-    transaction = Transaction.new(date, amount, balance)
+  def withdraw(debit)
+    @balance -= debit
+    transaction = Transaction.new(date, 0, debit, balance)
     @transactions << transaction
   end
 
   def print_statement
     puts 'date || credit || debit || balance'
-  end
+    @transactions.each do |x|
+      puts "#{x.date} || #{x.credit} || #{x.debit} || #{x.balance}"
+    end
+end
 end
