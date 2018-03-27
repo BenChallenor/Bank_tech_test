@@ -34,4 +34,11 @@ describe 'Account' do
       expect(account.transactions.length).to eq 2
     end
   end
+
+  describe 'Print statement' do
+    it 'Should print the statement header' do
+      msg = "date || credit || debit || balance\n"
+      expect{ account.print_statement }.to output(msg).to_stdout
+    end
+  end
 end
