@@ -19,6 +19,10 @@ describe 'Account' do
       account.deposit(20)
       expect(account.balance).to eq 20
     end
+
+    it 'Should add array to transactions' do
+      expect(account.transactions.length).to eq 1
+    end
   end
 
   describe 'Withdraw' do
