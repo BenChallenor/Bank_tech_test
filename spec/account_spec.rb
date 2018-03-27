@@ -13,6 +13,13 @@ describe 'Account' do
     end
   end
 
+  describe 'Print statement' do
+    it 'Should print the statement header' do
+      msg = "date || credit || debit || balance\n"
+      expect { account.print_statement }.to output(msg).to_stdout
+    end
+  end
+
   describe 'Deposit' do
     it 'Should add amount to balance' do
       account.deposit(20)
@@ -36,9 +43,12 @@ describe 'Account' do
   end
 
   describe 'Print statement' do
-    it 'Should print the statement header' do
-      msg = "date || credit || debit || balance\n"
-      expect { account.print_statement }.to output(msg).to_stdout
+    it 'Should print the transactions in statement' do
+      expect { account.print_statement }.to output(
+      "date || credit || debit || balance\n" +
+      "#{Time.now.strftime('%d-%m-%Y')} || 20 || 0 || 20\n" +
+      "#{Time.now.strftime('%d-%m-%Y')} || 0 || 5 || 15\n").to_stdout
+
     end
   end
 end
