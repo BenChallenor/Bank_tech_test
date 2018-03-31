@@ -1,28 +1,25 @@
 class Account
-  attr_reader :balance, :transactions, :date
+  attr_reader :balance, :printer
 
-  def initialize
+  def initialize(printer = Printer.new)
     @balance = 0
-    @transactions = []
-    @date = Time.now.strftime('%d-%m-%Y')
+    @printer = printer
   end
 
-  def deposit(credit)
-    @balance += credit
-    transaction = Transaction.new(date, credit, 0, balance)
-    @transactions.unshift(transaction)
+  def deposit(amount)
+    @balance += amount
+    transaction = Transaction.new(:credit, amount, balance)
+    printer.transactions << transaction
   end
 
-  def withdraw(debit)
-    @balance -= debit
-    transaction = Transaction.new(date, 0, debit, balance)
-    @transactions.unshift(transaction)
+  def withdraw(amount)
+    @balance -= amount
+    transaction = Transaction.new(:debit, amount, balance)
+    printer.transactions << transaction
   end
 
   def print_statement
-    puts 'date || credit || debit || balance'
-    @transactions.each do |x|
-      puts "#{x.date} || #{x.credit} || #{x.debit} || #{x.balance}"
-    end
+    printer.print_statement
   end
+
 end

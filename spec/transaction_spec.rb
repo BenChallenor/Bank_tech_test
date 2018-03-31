@@ -1,7 +1,11 @@
 require 'transaction'
 
+
 describe Transaction do
-  subject(:transaction) { described_class.new(Time.now.strftime('%d-%m-%Y'), 50, 0, 100) }
+  subject(:transaction) do
+    described_class.new(Time.now.strftime('%d-%m-%Y'),
+                        50, 100)
+  end
 
   describe 'Initialize' do
     it 'Should include the current date' do
@@ -10,7 +14,7 @@ describe Transaction do
   end
 
   it 'Should include an amount' do
-    expect(transaction.credit).to eq(50)
+    expect(transaction.amount).to eq(50)
   end
 
   it 'Should include a balance' do

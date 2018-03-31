@@ -1,4 +1,6 @@
 require 'account'
+require 'printer'
+
 
 describe 'Account' do
   account = Account.new
@@ -9,7 +11,7 @@ describe 'Account' do
     end
 
     it 'Should create an empty transaction array' do
-      expect(account.transactions).to eq []
+      expect(account.printer.transactions).to eq []
     end
   end
 
@@ -27,7 +29,7 @@ describe 'Account' do
     end
 
     it 'Should add array to transactions' do
-      expect(account.transactions.length).to eq 1
+      expect(account.printer.transactions.length).to eq 1
     end
   end
 
@@ -38,7 +40,7 @@ describe 'Account' do
     end
 
     it 'Should add array to transactions' do
-      expect(account.transactions.length).to eq 2
+      expect(account.printer.transactions.length).to eq 2
     end
   end
 

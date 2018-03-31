@@ -1,10 +1,10 @@
 class Transaction
-  attr_reader :date, :credit, :debit, :balance
+  attr_reader :type, :amount, :balance, :date
 
-  def initialize(date, credit, debit, balance)
-    @date = Time.now.strftime('%d-%m-%Y')
-    @credit = credit
-    @debit = debit
+  def initialize(type, amount, balance)
+    @type = type
+    @amount = amount
     @balance = balance
+    @date = Time.now.strftime('%d-%m-%Y')
   end
 end
