@@ -71,6 +71,6 @@ date || credit || debit || balance
  => [#<Transaction:0x00007f9b638bc0f8 @date="27-03-2018", @credit=0, @debit=15, @balance=35>, #<Transaction:0x00007f9b638bf5a0 @date="27-03-2018", @credit=50, @debit=0, @balance=50>]
 2.5.0 :005 > account.print_statement
 date || credit || debit || balance
-27-03-2018 || 0 || 15 || 35
-27-03-2018 || 50 || 0 || 50
+27-03-2018 || || 15.00 || 35.00
+27-03-2018 || 50.00 || || 50.00
 ```

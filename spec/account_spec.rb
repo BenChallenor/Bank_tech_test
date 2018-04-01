@@ -44,8 +44,8 @@ describe 'Account' do
     it 'Should print the transactions in statement' do
       expect { account.print_statement }.to output(
         "date || credit || debit || balance\n" \
-        "#{Time.now.strftime('%d-%m-%Y')} || || 5 || 15\n" \
-        "#{Time.now.strftime('%d-%m-%Y')} || 20 || || 20\n"
+        "#{Time.now.strftime('%d-%m-%Y')} || || 5.00 || 15.00\n" \
+        "#{Time.now.strftime('%d-%m-%Y')} || 20.00 || || 20.00\n"
       ).to_stdout
     end
   end
