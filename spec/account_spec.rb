@@ -1,5 +1,5 @@
 require 'account'
-require 'printer'
+require 'history'
 
 
 describe 'Account' do
@@ -8,10 +8,6 @@ describe 'Account' do
   describe 'Initialize' do
     it 'Should create an initial balance of 0' do
       expect(account.balance).to eq 0
-    end
-
-    it 'Should create an empty transaction array' do
-      expect(account.printer.transactions).to eq []
     end
   end
 
@@ -29,7 +25,7 @@ describe 'Account' do
     end
 
     it 'Should add array to transactions' do
-      expect(account.printer.transactions.length).to eq 1
+      expect(account.history.transactions.length).to eq 1
     end
   end
 
@@ -40,7 +36,7 @@ describe 'Account' do
     end
 
     it 'Should add array to transactions' do
-      expect(account.printer.transactions.length).to eq 2
+      expect(account.history.transactions.length).to eq 2
     end
   end
 
@@ -48,8 +44,8 @@ describe 'Account' do
     it 'Should print the transactions in statement' do
       expect { account.print_statement }.to output(
         "date || credit || debit || balance\n" \
-        "#{Time.now.strftime('%d-%m-%Y')} || 0 || 5 || 15\n" \
-        "#{Time.now.strftime('%d-%m-%Y')} || 20 || 0 || 20\n"
+        "#{Time.now.strftime('%d-%m-%Y')} || || 5 || 15\n" \
+        "#{Time.now.strftime('%d-%m-%Y')} || 20 || || 20\n"
       ).to_stdout
     end
   end

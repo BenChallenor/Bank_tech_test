@@ -1,4 +1,4 @@
-class Printer
+class History
   attr_reader :transactions
 
   def initialize
