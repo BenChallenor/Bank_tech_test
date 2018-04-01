@@ -1,6 +1,9 @@
 class Statement
+
+  Header = 'date || credit || debit || balance'
+
   def print_statement(transactions)
-    puts 'date || credit || debit || balance'
+    puts Header
     transactions.reverse.each do |x|
       if x.type == :debit
         puts "#{x.date} || || #{x.amount} || #{x.balance}"
